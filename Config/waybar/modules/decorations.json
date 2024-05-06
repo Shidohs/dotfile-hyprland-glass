@@ -1,0 +1,19 @@
+{
+    
+	"custom/left-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/spaceback1": {
+		"format": " ",
+		"tooltip": false
+	},
+	"custom/right-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/spaceback2": {
+		"format": "  ",
+		"tooltip": false
+	}
+}

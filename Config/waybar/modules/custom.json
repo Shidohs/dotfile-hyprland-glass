@@ -1,0 +1,12 @@
+{
+  "custom/launch": {
+    "format": "⨇rch",
+    "on-click": "pcmanfm menu://applications",
+    "on-click-right": "rofi -theme ~/.config/bspwm/rofi/themes/launcher.rasi -show drun",
+    "on-click-middle": "pkill -9 rofi"
+  },
+  "custom/powermenu": {
+    "format": "  ",
+    "on-click": "rofi -theme ~/.config/bspwm/rofi/themes/powermenu.rasi  -show p -modi p:rofi-power-menu"
+  }
+}

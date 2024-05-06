@@ -1,0 +1,35 @@
+{
+  // Position
+  "layer": "top",
+  "position": "top",
+
+  // Load Modules
+  "include": [
+    "~/.config/waybar/modules/system.json",
+    "~/.config/waybar/modules/decorations.json",
+    "~/.config/waybar/modules/system/workspaces.json",
+    "~/.config/waybar/modules/custom.json"
+  ],
+
+  // Modules waybar
+  "modules-left": [
+    "custom/launch",
+    "custom/spaceback2",
+    "memory",
+    "cpu",
+    "temperature",
+    "custom/pacman"
+  ],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "tray",
+    "clock",
+    "custom/spaceback1",
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "battery",
+    "custom/spaceback1",
+    "custom/powermenu"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "clock1": {
+    "format": " {:%a}",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+  "clock2": {
+    "format": " {:%H:%M}",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+  "clock3": {
+    "format": " {:%d-%m }",
+    "tooltip": false,
+    "on-click": "gsimplecal"
+  },
+  "clock22": {
+    "format": " {:%H:%M %a:%d}",
+    "tooltip": true,
+    "on-click": "gsimplecal"
+  },
+  "clock": {
+    "locale": "C",
+    "tooltip": false,
+    "format": " {:%I:%M %p}",
+    "format-alt": " {:%I:%M |  %a,%b %d}"
+  }
+}
