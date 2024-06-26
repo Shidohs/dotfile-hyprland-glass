@@ -8,6 +8,8 @@ Este es mi Dotfiles de hyprland, mi primer dotfiles, en este dot, trato de hacer
 
 ## Instalacion
 
+ESTA EN FASE DE BETA - no instalar aun
+
 Algunas cosas no se respaldan, ASÍ QUE TEN CUIDADO.
 Para ejecutar el scripts:
 
@@ -38,7 +40,7 @@ chmod +x install_config.sh
 
 ## Screenshots
 
-![Preview](screenshot/bspwm.png)
+![Preview](screenshot/hyprland.png)
 ![Preview](screenshot/bspwm2.png)
 
 ## Acerca de
