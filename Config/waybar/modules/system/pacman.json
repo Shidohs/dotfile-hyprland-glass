@@ -2,8 +2,8 @@
   "custom/pacman": {
     "format": "{}",
     "interval": 5,
-    "exec": "/home/shidox/.config/hypr/scripts/system/pacman.sh --check",
-    "on-click": "~/.config/waybar/scripts/pacmanUpdate.sh --update -q",
+    "exec": "$HOME/.config/waybar/scripts/system/pacman/pacman.sh --check",
+    "on-click": "$HOME/.config/waybar/scripts/system/pacman/pacmanUpdate.sh --update -q",
     "exec-if": "exit 0"
   }
 }

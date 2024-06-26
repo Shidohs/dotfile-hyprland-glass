@@ -5,7 +5,7 @@
 #github: https://github.com/Shidohs
 
 # Archivo JSON donde se guardarán los datos
-pacman_json="$HOME/.config/hypr/scripts/system/pacman.json"
+pacman_json="$HOME/.config/waybar/scripts/system/pacman/pacman.json"
 
 case "$1" in
 --check)

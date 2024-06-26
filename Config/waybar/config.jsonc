@@ -14,7 +14,7 @@
   // Modules waybar
   "modules-left": [
     "custom/launch",
-    "custom/spaceback2",
+    "custom/spacebackLong",
     "memory",
     "cpu",
     "temperature",
@@ -23,13 +23,15 @@
   "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "tray",
+    "custom/spacebackShort",
+    "custom/notification",
     "clock",
-    "custom/spaceback1",
+    "custom/spacebackShort",
     "network",
     "bluetooth",
     "pulseaudio",
     "battery",
-    "custom/spaceback1",
+    "custom/spacebackShort",
     "custom/powermenu"
   ]
 }

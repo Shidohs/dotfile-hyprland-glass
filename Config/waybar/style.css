@@ -16,7 +16,7 @@ tooltip {
 }
 #clock {
   color: #f1aa40;
-  border-radius: 12px;
+  border-radius: 0 12px 12px 0;
 }
 
 window#waybar {
@@ -31,6 +31,10 @@ window#waybar {
 #custom-left-dark {
   background-color: #1a1a1a;
   color: #ffffff;
+}
+#custom-notification {
+  color: rgb(182, 25, 25);
+  border-radius: 12px 0 0 12px;
 }
 
 #battery {
@@ -49,21 +53,6 @@ window#waybar {
 
 #bluetooth {
   color: #15d056;
-}
-
-#clock1 {
-  color: #fac871;
-  border-radius: 12px 0 0 12px;
-}
-
-#clock3 {
-  color: #ffcf7c;
-  border-radius: 0 12px 12px 0;
-}
-
-#custom-clock {
-  color: #b58900;
-  border-radius: 12px;
 }
 
 #custom-launch {
@@ -130,10 +119,6 @@ window#waybar {
   opacity: 0.7;
 }
 
-#clock2 {
-  color: #00ffbd;
-}
-
 #pulseaudio {
   color: #009eff;
 }
@@ -158,11 +143,8 @@ window#waybar {
 #tray {
   border-radius: 12px;
 }
-#custom-clock,
 tooltip,
-#clock1,
-#clock2,
-#clock3,
+#custom-notification,
 #clock,
 #bluetooth,
 #pulseaudio,

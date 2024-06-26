@@ -57,10 +57,10 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0% 28%;
-    padding:                     10px;
+    margin:                      0% 26%;
+    padding:                     12px;
     border:                      1px solid;
-    border-radius:               6px;
+    border-radius:               12px;
     border-color:                white / 25%;
     background-color:            white / 5%;
     text-color:                  @foreground;
@@ -82,6 +82,7 @@ textbox-prompt-colon {
 entry {
     enabled:                     true;
     background-color:            transparent;
+    location:                    center;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";

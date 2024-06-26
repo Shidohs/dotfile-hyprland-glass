@@ -1,0 +1,7 @@
+i3lock-color
+imagemagick
+awk
+jq
+util-linux
+wmctrl
+hyprshot

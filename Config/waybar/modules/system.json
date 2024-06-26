@@ -2,29 +2,10 @@
   "include": [
     "~/.config/waybar/modules/system/clock.json",
     "~/.config/waybar/modules/system/bluetooth.json",
-    "~/.config/waybar/modules/system/pacman.json"
+    "~/.config/waybar/modules/system/pacman.json",
+    "~/.config/waybar/modules/system/network.json"
   ],
-  "network": {
-    "interface": "wlan0",
-    "format": "{ifname}",
-    "format-wifi": "",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
-    "tooltip": false
-  },
-  "network#2": {
-    "format": "{ifname}",
-    "format-wifi": "   {signalStrength}%",
-    "format-ethernet": "  {ifname}",
-    "format-disconnected": "Disconnected",
-    "tooltip-format": " {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
-    "on-click": "~/dotfiles/.settings/networkmanager.sh",
-    "tooltip": true
-  },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -74,5 +55,25 @@
   "tray": {
     "icon-size": 16,
     "spacing": 6
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   }
 }

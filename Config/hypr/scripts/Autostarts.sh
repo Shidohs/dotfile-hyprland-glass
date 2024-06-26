@@ -14,4 +14,7 @@ case $2 in
 "--waybar")
     reset
     ;;
+"--swaync")
+    reset
+    ;;
 esac
