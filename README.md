@@ -1,6 +1,6 @@
 # DOTFILE BSPWM
 
-![Logo](screenshot/icon.jpg)
+![Logo](https://repository-images.githubusercontent.com/470730648/c4c69fe5-dc70-42b8-aae1-3a6d303656c0)
 
 ## Scripts De Instalacion
 
