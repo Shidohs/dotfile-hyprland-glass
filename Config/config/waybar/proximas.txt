@@ -1,0 +1,3 @@
+personalizar el notificador
+mejorar rofi(sus temas)
+organizar los ejecutables

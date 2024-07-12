@@ -1,0 +1,9 @@
+{
+  "custom/pacman": {
+    "format": "{}",
+    "interval": 12,
+    "exec": "$HOME/.config/waybar/scripts/system/pacman/pacman.sh --check",
+    "on-click": "$HOME/.config/waybar/scripts/system/pacman/pacmanUpdate.sh --update -q",
+    "exec-if": "exit 0"
+  }
+}

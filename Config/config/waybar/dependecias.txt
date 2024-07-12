@@ -1,0 +1,11 @@
+i3lock-color
+imagemagick
+awk
+jq
+util-linux
+wmctrl
+hyprshot
+
+#fonts 
+
+yay -S ttf-fantasque-sans-mono ttf-meslo-nerd ttf-noto-sans-mono-vf ttf-jetbrains-mono ttf-comfortaa cantarell-fonts ttf-iosevka-nerd ttf-font-awesome
