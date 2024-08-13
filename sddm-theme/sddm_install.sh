@@ -1,5 +1,5 @@
 !#/bin/bash
 
-cp sddm.conf /etc/sddm.conf
+cp sddm-theme/sddm.conf /etc/sddm.conf
 
-cp -r themes/ /usr/share/sddm/themes/
+cp -r sddm-theme/themes/ /usr/share/sddm/themes/
