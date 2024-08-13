@@ -18,9 +18,37 @@
       "xorg-xwayland"
     ],
     "Power Management": ["upower", "udiskie"],
-    "Bluetooth": ["bluez-utils", "bluez"],
+    "Bluetooth": ["bluez-utils", "bluez" ,"blueman"],
     "Security": ["gnome-keyring", "polkit-gnome"],
     "Terminal": ["sakura", "kitty", "alacritty"],
-    "Utils": ["nwg-look", "nemo", "appimage-installer-bin"]
+    "Utils": ["nwg-look", "appimage-installer-bin", "i3lock-color",
+    "imagemagick",
+    "awk",
+    "jq",
+    "util-linux",
+    "wmctrl",
+    "hyprshot"],
+
+    "Code": ["vscode","neovim", "geany"],
+    "File": ["thunar","nemo"],
+    "Web": ["firefox"],
+    "Multimedia": ["viewnior", "celluloid", "ristretto"],
+    "Otros": [
+      "zsh", "font-manager", "plocate", "bat",
+       "brightnessctl", "btop", "neofetch", "xclip",
+      "curl", "python", "dunst", "ffmpeg", "fzf", "glow", "gparted",
+      "grub-customizer", "gtk", "gtk2", "gtk3", "gtk4", "imagemagick",
+      "ocs-url", "rsync"
+    ],
+    "Sistema": [
+      "exa", "jgmenu", "dmenu", "bspwm", "acpi", "acpid",
+      "lxappearance", "polybar", "xautolock", "sxhkd", "tree"
+    ],
+    "Fonts": [
+      "candy-icons-git", "fontdownloader", "ttf-firacode", "ttf-firacode-nerd",
+      "ttf-font-awesome", "ttf-jetbrains-mono-nerd", "ttf-nerd-fonts-symbols",
+      "ttf-victor-mono-nerd", "ttf-material-design-iconic-font",
+      "ttf-material-design-icons-desktop-git"
+    ]
   }
 }
