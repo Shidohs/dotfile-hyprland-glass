@@ -3,52 +3,116 @@
     "Audio": [
       "pipewire",
       "pipewire-alsa",
-      "pavucontrol",
       "pipewire-pulse",
-      "pipewire-jack"
+      "pipewire-jack",
+      "pavucontrol"
     ],
     "Desktop Environment": [
+      "hyprland",
+      "hyprpaper",
       "swaybg",
       "waybar",
       "swaylock-fancy-git",
-      "hyprland",
-      "hyprpaper",
       "swaync",
       "qt5-wayland",
       "xorg-xwayland"
     ],
-    "Power Management": ["upower", "udiskie"],
-    "Bluetooth": ["bluez-utils", "bluez" ,"blueman"],
-    "Security": ["gnome-keyring", "polkit-gnome"],
-    "Terminal": ["sakura", "kitty", "alacritty"],
-    "Utils": ["nwg-look", "appimage-installer-bin", "i3lock-color",
-    "imagemagick",
-    "awk",
-    "jq",
-    "util-linux",
-    "wmctrl",
-    "hyprshot"],
-
-    "Code": ["vscode","neovim", "geany"],
-    "File": ["thunar","nemo"],
-    "Web": ["firefox"],
-    "Multimedia": ["viewnior", "celluloid", "ristretto"],
-    "Otros": [
-      "zsh", "font-manager", "plocate", "bat",
-       "brightnessctl", "btop", "neofetch", "xclip",
-      "curl", "python", "dunst", "ffmpeg", "fzf", "glow", "gparted",
-      "grub-customizer", "gtk", "gtk2", "gtk3", "gtk4", "imagemagick",
-      "ocs-url", "rsync"
+    "Power Management": [
+      "upower",
+      "udiskie"
     ],
-    "Sistema": [
-      "exa", "jgmenu", "dmenu", "bspwm", "acpi", "acpid",
-      "lxappearance", "polybar", "xautolock", "sxhkd", "tree"
+    "Bluetooth": [
+      "bluez-utils",
+      "bluez",
+      "blueman"
+    ],
+    "Security": [
+      "gnome-keyring",
+      "polkit-gnome"
+    ],
+    "Terminal": [
+      "sakura",
+      "kitty",
+      "alacritty"
+    ],
+    "Utilities": [
+      "nwg-look",
+      "appimage-installer-bin",
+      "i3lock-color",
+      "imagemagick",
+      "awk",
+      "jq",
+      "util-linux",
+      "wmctrl",
+      "hyprshot",
+      "hyprpicker",
+      "xdg-desktop-portal-hyprland",
+      "xdg-desktop-portal",
+      "xdg-desktop-portal-gtk"
+      "file-roller"
+    ],
+    "Coding": [
+      "vscode",
+      "neovim",
+      "geany"
+    ],
+    "File Management": [
+      "thunar",
+      "nemo"
+    ],
+    "Web Browsing": [
+      "firefox"
+    ],
+    "Multimedia": [
+      "viewnior",
+      "celluloid",
+      "ristretto"
+    ],
+    "Miscellaneous": [
+      "zsh",
+      "font-manager",
+      "plocate",
+      "bat",
+      "brightnessctl",
+      "btop",
+      "neofetch",
+      "xclip",
+      "curl",
+      "python",
+      "dunst",
+      "ffmpeg",
+      "fzf",
+      "glow",
+      "gparted",
+      "grub-customizer",
+      "gtk",
+      "gtk2",
+      "gtk3",
+      "gtk4",
+      "ocs-url",
+      "rsync"
+    ],
+    "System Utilities": [
+      "exa",
+      "jgmenu",
+      "dmenu",
+      "acpi",
+      "acpid",
+      "lxappearance",
+      "tree"
     ],
     "Fonts": [
-      "candy-icons-git", "fontdownloader", "ttf-firacode", "ttf-firacode-nerd",
-      "ttf-font-awesome", "ttf-jetbrains-mono-nerd", "ttf-nerd-fonts-symbols",
-      "ttf-victor-mono-nerd", "ttf-material-design-iconic-font",
+      "candy-icons-git",
+      "fontdownloader",
+      "ttf-firacode",
+      "ttf-firacode-nerd",
+      "ttf-font-awesome",
+      "ttf-jetbrains-mono-nerd",
+      "ttf-nerd-fonts-symbols",
+      "ttf-victor-mono-nerd",
+      "ttf-material-design-iconic-font",
       "ttf-material-design-icons-desktop-git"
     ]
   }
 }
+

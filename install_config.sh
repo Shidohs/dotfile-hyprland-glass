@@ -1,24 +1,32 @@
 #!/bin/bash
 
 # Actualiza el sistema
-sudo pacman -Syu
+echo "Actualizando el sistema..."
+sudo pacman -Syu --noconfirm
+sudo pacman -S rsync
 
 # Copia los archivos de configuración
-cp -r Config/config/* ~/.config
-cp -r Config/Home/ ~/
+echo "Copiando archivos de configuración..."
+sudo pacman -S rsync
+rsync -av Config/config ~/.config
+rsync -av Config/Home ~/
 
-# Pregunta al usuario si quiere cambiar el DM por SDDM
+# Pregunta al usuario si quiere cambiar el Display Manager a SDDM
 read -p "¿Quieres cambiar el Display Manager a SDDM? (y/n): " change_dm
 
 # Ejecuta comandos según la elección del usuario
 case $change_dm in
     y|Y)
-        # Instala SDDM y establece como DM
-        sudo pacman -S sddm
-       echo "Desactivando su DM predeterminado"
-sudo systemctl disable $(systemctl list-unit-files --type=service --state=enabled | grep 'dm\.service' | awk '{print $1}')
-echo "Activar SDDM como display manager (DM) predeterminado"
-sudo systemctl enable sddm.service
+        echo "Instalando y configurando SDDM..."
+        sudo pacman -S --noconfirm sddm
+
+        echo "Desactivando el Display Manager actual..."
+        sudo systemctl disable $(systemctl list-unit-files --type=service --state=enabled | grep 'dm\.service' | awk '{print $1}')
+
+        echo "Activando SDDM como Display Manager..."
+        sudo systemctl enable sddm.service
+
+        echo "Instalando el tema para SDDM..."
         chmod +x sddm-theme/sddm_install.sh
         ./sddm-theme/sddm_install.sh
         ;;
@@ -29,24 +37,25 @@ sudo systemctl enable sddm.service
         echo "Opción no válida. No se cambiará el Display Manager."
         ;;
 esac
+
 # Función para instalar paquetes
 install_packages() {
-  package_manager=$1
+  local package_manager=$1
   shift
   for package in "$@"; do
-    if pacman -Qi $package &>/dev/null; then
+    if pacman -Qi "$package" &>/dev/null; then
       echo "$package ya está instalado."
     else
       echo "Instalando $package..."
-      if ! sudo pacman -S --noconfirm $package; then
+      if ! sudo pacman -S --noconfirm "$package"; then
+        echo "Falla al instalar $package con pacman. Intentando con yay o paru..."
+
         if command -v yay &>/dev/null; then
-          echo "Intentando instalar $package con yay..."
-          yay -S --noconfirm $package
+          yay -S --noconfirm "$package"
         elif command -v paru &>/dev/null; then
-          echo "Intentando instalar $package con paru..."
-          paru -S --noconfirm $package
+          paru -S --noconfirm "$package"
         else
-          echo "No se pudo instalar $package. Yay o Paru no están disponibles."
+          echo "No se pudo instalar $package. Ni yay ni paru están disponibles."
         fi
       fi
     fi
@@ -62,137 +71,116 @@ if [[ ! -f $requirements_file ]]; then
 fi
 
 # Instalar dependencias de cada sección
-for section in "Audio" "Desktop Environment" "Power Management" "Bluetooth" "Security" "Terminal" "Utils" "Fonts" "Sistema" "Otros" "Multimedia" "Web" "File" "Code"; do
+for section in "Audio" "Desktop Environment" "Power Management" "Bluetooth" "Security" "Terminal" "Utilities" "Fonts" "System Utilities" "Miscellaneous" "Multimedia" "Web Browsing" "File Management" "Coding"; do
   echo "Instalando paquetes de la sección $section..."
   packages=$(jq -r ".System[\"$section\"][]" $requirements_file)
   install_packages pacman $packages
 done
 
-echo "----- CAMBIANDO LA SHELL -----"
+echo "----- CAMBIANDO LA SHELL A ZSH -----"
+# Verificar la shell actual antes de cambiar a zsh
+current_shell=$(getent passwd "$USER" | cut -d: -f7)
 
-chsh -s /bin/zsh
-
-echo "----- INSTALAND OHMYZSH -----"
-#instalar y configurar ohmyzsh
-if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
-	echo "No está instalado Oh My Zsh, comenzará la instalación"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ "$current_shell" != "/bin/zsh" ]]; then
+  echo "Cambiando la shell a zsh..."
+  chsh -s /bin/zsh
 else
-	echo "Oh My Zsh ya está instalado"
+  echo "La shell ya está configurada como zsh."
 fi
 
-echo "creando enlace para root de'Oh My Zsh'"
+echo "----- INSTALANDO OH-MY-ZSH -----"
+# Instalar y configurar Oh My Zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo "No está instalado Oh My Zsh, comenzará la instalación..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo "Oh My Zsh ya está instalado."
+fi
+
+echo "Creando enlace para root de Oh My Zsh..."
 # Instalar oh-my-zsh como root
-sudo ln -s "$HOME"/.oh-my-zsh /root/
-echo "Enlazado"
+sudo ln -sf "$HOME/.oh-my-zsh" /root/
 
-# tema pówerlevel10k
-echo "INSTALANDO TEMA POWERLEVEL10K"
+echo "Instalando el tema Powerlevel10k..."
+# Instalar el tema Powerlevel10k
 if [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
-	echo "powerlevel10k no está instalado, comenzará a instalarse"
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-	echo "Modificando .p10k.zsh"
-	
-else
-	echo "powerlevel10k está instalado"
-	echo "Modificando .p10k.zsh"
-	
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-echo "---------------------"
+echo "Modificando .p10k.zsh..."
+# Aquí podrías agregar comandos para modificar .p10k.zsh si es necesario
+
 echo "----- HACER ESTE PROCESO EN ROOT -----"
+echo "Creando enlaces para root de .zshrc y .aliases..."
+sudo ln -sf ~/.zshrc /root/
+sudo ln -sf ~/.aliases /root/
 
-echo "creando enlace para root de'aliases y .zshrc'"
-# ROOT
-sudo ln -s ~/.zshrc /root/
-sudo ln -s ~/.aliases /root/
+echo "Instalando plugins para Oh My Zsh..."
+# Instalar plugins para Oh My Zsh
+for plugin in "fzf-tab" "zsh-syntax-highlighting" "zsh-autosuggestions"; do
+  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$plugin" ]; then
+    git clone "https://github.com/Aloxaf/$plugin" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$plugin"
+  fi
+done
 
-#Plugins
-echo "----- INSTALANDO PLUGINS EN USER -----"
-echo "Instalando plugins de ohmyzsh"
-# Verificar si los repositorios fzf-tab, zsh-syntax-highlighting y zsh-autosuggestions están clonados
-if [ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab" ] &&
-	[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ] &&
-	[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-	echo "Los repositorios ya están clonados."
-else
-	# Clonar los repositorios fzf-tab, zsh-syntax-highlighting y zsh-autosuggestions
-	git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "Instalando dependencias para SDDM..."
+# Instalar dependencias para SDDM
+if ! pacman -Qq "qt5-graphicaleffects" "qt5-svg" "qt5-quickcontrols2" >/dev/null; then
+  sudo pacman -S --noconfirm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
 fi
 
-
-echo "dependencias para el tema"
-if pacman -Q "qt5-graphicaleffects" &>/dev/null &&
-	pacman -Q "qt5-svg" &>/dev/null &&
-	pacman -Q "qt5-quickcontrols2" &>/dev/null; then
-	echo "Dependencias para sddm-theme: Instalados"
-else
-	sudo pacman -S --noconfirm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
-	echo "Dependencias para sddm-theme: Instalados"
-fi
-
+echo "Instalando y configurando SDDM..."
+# Instalar SDDM si no está instalado
 if ! pacman -Qq "sddm" >/dev/null; then
-	echo "sddm: no está instalado"
-	echo "Instalando SDDM"
-	sudo pacman -S --noconfirm sddm
+  sudo pacman -S --noconfirm sddm
 fi
 
-# instalando el repo chaotic
 echo "----- INSTALANDO REPO CHAOTIC_EUR -----"
-
-# Instalar clave primaria
+# Instalar repositorio Chaotic AUR
 sudo pacman -Sc --noconfirm
 sudo pacman-key --init
 sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key 3056513887B78AEB
 
-# Instalar keyring y mirrorlist
-if ! pacman -Qq chaotic-keyring &>/dev/null; then
-	sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-	sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-	sudo pacman -Sc --noconfirm
+if ! pacman -Qq chaotic-keyring >/dev/null; then
+  sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+  sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+  sudo pacman -Sc --noconfirm
 fi
 
 # Configurar pacman.conf
-
 if [ -f "/etc/pacman.d/chaotic-mirrorlist" ]; then
-	if ! grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
-
-		# Agregar sección [chaotic-aur]
-		echo '[chaotic-aur]' | sudo tee -a /etc/pacman.conf
-
-		# Agregar directiva Include
-		echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
-
-	fi
+  if ! grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
+    echo "[chaotic-aur]" | sudo tee -a /etc/pacman.conf
+    echo "Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
+  fi
 else
-	echo "El archivo /etc/pacman.d/chaotic-mirrorlist no existe."
+  echo "El archivo /etc/pacman.d/chaotic-mirrorlist no existe."
 fi
 
-echo "----- INSTALANDO TIENDA DE ARCH -----"
-#isntalando la tienda de arch
-
-if pacman -Qq "pamac-all"; then
-	echo "Tienda Aur: Instalado"
-	if pacman -Qq "powerpill"; then
-		sudo pacman -Sy --noconfirm && sudo powerpill -Su && yay -Su
-	else
-		yay -S --noconfirm powerpill
-		sudo pacman -Sy --noconfirm && sudo powerpill -Su && yay -Su
-	fi
-
+echo "----- INSTALANDO PAMAC -----"
+# Instalar Pamac y Powerpill
+if pacman -Qq "pamac-all" >/dev/null; then
+  echo "Pamac ya está instalado."
 else
-	echo "Tienda Aur: No Instalado"
-	yay -S --noconfirm pamac-all
-	yay -S --noconfirm powerpill
-	sudo pacman -Sy --noconfirm && sudo powerpill -Su && yay -Su
+  yay -S --noconfirm pamac-all
 fi
-#Iniciando el servicio de bluetooth
+
+if pacman -Qq "powerpill" >/dev/null; then
+  echo "Powerpill ya está instalado."
+else
+  yay -S --noconfirm powerpill
+fi
+
+# Sincronizar y actualizar el sistema
+sudo pacman -Sy --noconfirm
+sudo powerpill -Su --noconfirm
+yay -Su --noconfirm
+
+echo "Iniciando y habilitando el servicio de Bluetooth..."
+# Iniciar y habilitar el servicio de Bluetooth
 sudo systemctl start bluetooth
 sudo systemctl enable bluetooth
 
-echo "INSTALACION COMPLETADA"
-
+echo "Instalación completada."
 
