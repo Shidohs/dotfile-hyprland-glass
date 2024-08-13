@@ -1,0 +1,26 @@
+{
+  "System": {
+    "Audio": [
+      "pipewire",
+      "pipewire-alsa",
+      "pavucontrol",
+      "pipewire-pulse",
+      "pipewire-jack"
+    ],
+    "Desktop Environment": [
+      "swaybg",
+      "waybar",
+      "swaylock-fancy-git",
+      "hyprland",
+      "hyprpaper",
+      "swaync",
+      "qt5-wayland",
+      "xorg-xwayland"
+    ],
+    "Power Management": ["upower", "udiskie"],
+    "Bluetooth": ["bluez-utils", "bluez"],
+    "Security": ["gnome-keyring", "polkit-gnome"],
+    "Terminal": ["sakura", "kitty", "alacritty"],
+    "Utils": ["nwg-look", "nemo", "appimage-installer-bin"]
+  }
+}
