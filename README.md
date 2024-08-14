@@ -1,49 +1,64 @@
-# DOTFILE BSPWM
+# DOTFILE Hyprland Glass
 
 ![Logo](https://repository-images.githubusercontent.com/470730648/c4c69fe5-dc70-42b8-aae1-3a6d303656c0)
 
-## Scripts De Instalacion
+## Bienvenido
 
-Este es mi Dotfiles de hyprland, mi primer dotfiles, en este dot, trato de hacer que el consumo de recursos sea escaso, mi dotfiles tiene un tema glass.
+¡Hola! Este dotfile está diseñado para ofrecer un entorno de escritorio con efectos de cristal y un estilo minimalista. Aunque aún estoy trabajando en perfeccionarlo, espero que lo encuentres útil y atractivo.
 
-## Instalacion
+## Scripts de Instalación
 
-ESTA EN FASE DE BETA - no instalar aun
+Para configurar tu entorno, sigue estos pasos. Ten en cuenta que algunos archivos no se respaldan aún, incluyendo:
 
-Algunas cosas no se respaldan, ASÍ QUE TEN CUIDADO.
-Para ejecutar el scripts:
+- Configuración de Hyprland
+- Configuración de Waybar
+- Configuración de Kitty (si ya lo tienes)
+- `.zshrc` y su configuración
 
-- cosas que se respaldan son: .zshrc
+### Paso 1: Clonar el repositorio
 
-```bash
-  curl https://raw.githubusercontent.com/Shidohs/dotfile-hyprland-glass/main/install_config.sh > install_config.sh
-chmod +x install_config.sh
-
+``` bash
+git clone https://github.com/Shidohs/dotfile-hyprland-glass.git
 ```
-
-```bash
- ./install_config.sh
-
+### Paso 2: Acceder e Iniciar Script
+``` bash
+ cd dotfile-hyprland-glass && chmod +x install_config.sh && ./install_config.sh
 ```
 
 ## Contenido
 
-- WM : [Hyprland](https://github.com/baskerville/bspwm)
-- Shell :[zsh](https://wiki.archlinux.org/index.php/zsh) con [oh my zsh](https://github.com/ohmyzsh/ohmyzsh) framework!
-- Terminal :[kitty](https://github.com/kovidgoyal/kitty) y [alacritty](https://github.com/alacritty/alacritty)
-- Panel : [polybar](https://github.com/polybar/polybar)
-- Compositor :[picom](https://github.com/FT-Labs/picom)
-- Notify : [dunst](https://wiki.archlinux.org/index.php/Dunst) 🔔
-- Launcher :[rofi](https://github.com/davatorium/rofi)
-- File Manager :[thunar](https://wiki.archlinux.org/index.php/Thunar)/[nemo](https://github.com/linuxmint/nemo)/[ranger](https://github.com/ranger/ranger) 📂
-- Wallpaper Manager : [feh](https://feh.finalrewind.org/)
+- **Gestor de Ventanas (WM):** [Hyprland](https://github.com/baskerville/bspwm)
+- **Shell:** [zsh](https://wiki.archlinux.org/index.php/zsh) Con el Framework [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- **Terminales:** [Kitty](https://github.com/kovidgoyal/kitty) y [Alacritty](https://github.com/alacritty/alacritty)
+- **Panel:** [Waybar](https://github.com/Alexays/Waybar)
+- **Notificaciones:** [SwayNC](https://github.com/ErikReider/SwayNotificationCenter) 🔔
+- **Lanzador:** [Rofi](https://github.com/davatorium/rofi)
+- **Gestor de Archivos:** [Thunar](https://wiki.archlinux.org/index.php/Thunar), [Nemo](https://github.com/linuxmint/nemo), [Ranger](https://github.com/ranger/ranger) 📂
+- **Gestor de Fondos de Pantalla:** [Swaybg](https://feh.finalrewind.org/)
 
-## Screenshots
+## Atajos de Teclado
+
+- **Abrir terminal:** `Super(win) + Enter`
+- **Launcher:** `Super + d`
+- **Cambiar entre ventanas:** `Super + 1,2,3,4,...`
+- **Cerrar ventana:** `Super + q`
+- **navegador:** `Super + b`
+
+## Capturas de Pantalla
 
 ![Preview](screenshot/hyprland.png)
-![Preview](screenshot/bspwm2.png)
+
+## Proximo Agregar
+
+- Swaync Tema Glass
+- gestor de bateria 
+- Bloqueo de Pantalla
+- Mejorar Scripts de Rofi
+
+
+
 
 ## Acerca de
 
-- AUTOR: [@Shidohs](https://github.com/Shidohs)
+- AUTOR : [@Shidohs](https://github.com/Shidohs)
 - Gracias a [adi1090x](https://github.com/adi1090x/rofi) por los temas de rofi
