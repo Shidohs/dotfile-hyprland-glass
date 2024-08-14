@@ -3,13 +3,14 @@
 # Actualiza el sistema
 echo "Actualizando el sistema..."
 sudo pacman -Syu --noconfirm
-sudo pacman -S rsync
 
 # Copia los archivos de configuración
+
+echo "Instalando Dependencia Necesaria"
+sudo pacman -S rsync jq
 echo "Copiando archivos de configuración..."
-sudo pacman -S rsync
-rsync -av Config/config ~/.config
-rsync -av Config/Home ~/
+rsync -av Config/config/ ~/.config
+rsync -av Config/Home/ ~/
 
 # Pregunta al usuario si quiere cambiar el Display Manager a SDDM
 read -p "¿Quieres cambiar el Display Manager a SDDM? (y/n): " change_dm
@@ -18,7 +19,16 @@ read -p "¿Quieres cambiar el Display Manager a SDDM? (y/n): " change_dm
 case $change_dm in
     y|Y)
         echo "Instalando y configurando SDDM..."
-        sudo pacman -S --noconfirm sddm
+        # Instalar SDDM si no está instalado
+        if ! pacman -Qq "sddm" >/dev/null; then
+           sudo pacman -S --noconfirm sddm
+        fi
+
+        echo "Instalando dependencias para SDDM..."
+        # Instalar dependencias para SDDM
+        if ! pacman -Qq "qt5-graphicaleffects" "qt5-svg" "qt5-quickcontrols2" >/dev/null; then
+            sudo pacman -S --noconfirm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
+        fi
 
         echo "Desactivando el Display Manager actual..."
         sudo systemctl disable $(systemctl list-unit-files --type=service --state=enabled | grep 'dm\.service' | awk '{print $1}')
@@ -29,6 +39,8 @@ case $change_dm in
         echo "Instalando el tema para SDDM..."
         chmod +x sddm-theme/sddm_install.sh
         ./sddm-theme/sddm_install.sh
+        
+fi
         ;;
     n|N)
         echo "Manteniendo el Display Manager actual."
@@ -122,18 +134,6 @@ for plugin in "fzf-tab" "zsh-syntax-highlighting" "zsh-autosuggestions"; do
     git clone "https://github.com/Aloxaf/$plugin" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$plugin"
   fi
 done
-
-echo "Instalando dependencias para SDDM..."
-# Instalar dependencias para SDDM
-if ! pacman -Qq "qt5-graphicaleffects" "qt5-svg" "qt5-quickcontrols2" >/dev/null; then
-  sudo pacman -S --noconfirm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
-fi
-
-echo "Instalando y configurando SDDM..."
-# Instalar SDDM si no está instalado
-if ! pacman -Qq "sddm" >/dev/null; then
-  sudo pacman -S --noconfirm sddm
-fi
 
 echo "----- INSTALANDO REPO CHAOTIC_EUR -----"
 # Instalar repositorio Chaotic AUR
