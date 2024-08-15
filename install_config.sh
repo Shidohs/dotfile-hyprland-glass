@@ -67,17 +67,30 @@ install_packages() {
       if ! sudo pacman -S --noconfirm "$package"; then
         echo "Falla al instalar $package con pacman. Intentando con yay o paru..."
 
+        # Intentar con yay si está disponible
         if command -v yay &>/dev/null; then
-          yay -S --noconfirm "$package"
+          if yay -S --noconfirm "$package"; then
+            echo "$package instalado con yay."
+          else
+            echo "Falla al instalar $package con yay."
+          fi
+        # Intentar con paru si yay no está disponible
         elif command -v paru &>/dev/null; then
-          paru -S --noconfirm "$package"
+          if paru -S --noconfirm "$package"; then
+            echo "$package instalado con paru."
+          else
+            echo "Falla al instalar $package con paru."
+          fi
         else
           echo "No se pudo instalar $package. Ni yay ni paru están disponibles."
         fi
+      else
+        echo "$package instalado con pacman."
       fi
     fi
   done
 }
+
 
 # Leer el archivo requirements.json
 requirements_file="requirements.json"
@@ -134,12 +147,19 @@ sudo ln -sf ~/.zshrc /root/
 sudo ln -sf ~/.aliases /root/
 
 echo "Instalando plugins para Oh My Zsh..."
-# Instalar plugins para Oh My Zsh
-for plugin in "fzf-tab" "zsh-syntax-highlighting" "zsh-autosuggestions"; do
-  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$plugin" ]; then
-    git clone "https://github.com/Aloxaf/$plugin" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$plugin"
-  fi
-done
+# Verificar si los repositorios fzf-tab, zsh-syntax-highlighting y zsh-autosuggestions están clonados
+if [ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab" ] &&
+	[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ] &&
+	[ -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
+	echo "Los repositorios ya están clonados."
+else
+	# Clonar los repositorios fzf-tab, zsh-syntax-highlighting y zsh-autosuggestions
+	git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+
 echo "----- INSTALANDO REPO CHAOTIC_EUR -----"
 # Instalar repositorio Chaotic AUR
 sudo pacman -Sc --noconfirm
