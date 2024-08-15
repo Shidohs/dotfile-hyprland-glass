@@ -19,19 +19,25 @@ read -p "¿Quieres cambiar el Display Manager a SDDM? (y/n): " change_dm
 case $change_dm in
     y|Y)
         echo "Instalando y configurando SDDM..."
+        
         # Instalar SDDM si no está instalado
-        if ! pacman -Qq "sddm" >/dev/null; then
-           sudo pacman -S --noconfirm sddm
+        if ! pacman -Qq sddm >/dev/null; then
+            sudo pacman -S --noconfirm sddm
         fi
 
         echo "Instalando dependencias para SDDM..."
+        
         # Instalar dependencias para SDDM
-        if ! pacman -Qq "qt5-graphicaleffects" "qt5-svg" "qt5-quickcontrols2" >/dev/null; then
+        if ! pacman -Qq qt5-graphicaleffects qt5-svg qt5-quickcontrols2 >/dev/null; then
             sudo pacman -S --noconfirm qt5-graphicaleffects qt5-svg qt5-quickcontrols2
         fi
 
         echo "Desactivando el Display Manager actual..."
-        sudo systemctl disable $(systemctl list-unit-files --type=service --state=enabled | grep 'dm\.service' | awk '{print $1}')
+        # Desactivar el Display Manager actual
+        dm_service=$(systemctl list-unit-files --type=service --state=enabled | grep 'dm\.service' | awk '{print $1}')
+        if [ -n "$dm_service" ]; then
+            sudo systemctl disable "$dm_service"
+        fi
 
         echo "Activando SDDM como Display Manager..."
         sudo systemctl enable sddm.service
@@ -39,8 +45,6 @@ case $change_dm in
         echo "Instalando el tema para SDDM..."
         chmod +x sddm-theme/sddm_install.sh
         ./sddm-theme/sddm_install.sh
-        
-fi
         ;;
     n|N)
         echo "Manteniendo el Display Manager actual."
@@ -49,6 +53,7 @@ fi
         echo "Opción no válida. No se cambiará el Display Manager."
         ;;
 esac
+
 
 # Función para instalar paquetes
 install_packages() {
