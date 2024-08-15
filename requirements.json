@@ -49,7 +49,9 @@
       "xdg-desktop-portal-hyprland",
       "xdg-desktop-portal",
       "xdg-desktop-portal-gtk",
-      "file-roller"
+      "file-roller",
+      "rofi-wayland",
+      "networkmanager"
     ],
     "Coding": [
       "vscode",

@@ -185,7 +185,7 @@ fi
 
 echo "----- INSTALANDO PAMAC -----"
 # Instalar Pamac y Powerpill
-if pacman -Qq "pamac-all" >/dev/null; then
+if pacman -Qq "pamac-flatpak" >/dev/null; then
   echo "Pamac ya está instalado."
 else
   yay -S --noconfirm pamac-flatpak 
