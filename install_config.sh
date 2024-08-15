@@ -101,6 +101,7 @@ current_shell=$(getent passwd "$USER" | cut -d: -f7)
 if [[ "$current_shell" != "/bin/zsh" ]]; then
   echo "Cambiando la shell a zsh..."
   chsh -s /bin/zsh
+  echo "El cambio de shell se realizó. Debes cerrar sesión y volver a iniciarla para que el cambio tenga efecto."
 else
   echo "La shell ya está configurada como zsh."
 fi
@@ -139,7 +140,6 @@ for plugin in "fzf-tab" "zsh-syntax-highlighting" "zsh-autosuggestions"; do
     git clone "https://github.com/Aloxaf/$plugin" "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$plugin"
   fi
 done
-
 echo "----- INSTALANDO REPO CHAOTIC_EUR -----"
 # Instalar repositorio Chaotic AUR
 sudo pacman -Sc --noconfirm
