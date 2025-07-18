@@ -26,7 +26,8 @@
       "xorg-xwayland",
       "wlroots",
       "wayland",
-      "wayland-protocols"
+      "wayland-protocols",
+      "dunst"
     ],
     "XDG Portals": [
       "xdg-desktop-portal",
