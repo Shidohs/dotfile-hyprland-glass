@@ -1,0 +1,6 @@
+{
+  "include": [
+    "~/.config/waybar/modules/decorations/borders.json",
+    "~/.config/waybar/modules/decorations/spacing.json"
+  ]
+}

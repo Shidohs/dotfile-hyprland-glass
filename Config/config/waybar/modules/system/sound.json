@@ -1,28 +1,21 @@
 {
   "pulseaudio": {
+    "scroll-step": 1,
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": "󰸈",
+    "format-muted": "󰸈",
+    "format-source": "{volume}% 󰌐",
+    "format-source-muted": "󰌐",
     "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "default": [" ", " ", "󰕾"]
+      "headphone": "󰋋",
+      "hands-free": "󰋋",
+      "headset": "󰋋",
+      "phone": "󰏲",
+      "portable": "󰋋",
+      "car": "󰆏",
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click": "pavucontrol"
-  },
-  "custom/pipewire": {
-    "format": "{icon}",
-    "return-type": "json",
-    "signal": 8,
-    "interval": "once",
-    "format-icons": {
-      "mute": "",
-      "default": ["", "", "", ""]
-    },
-    "exec": "pw-volume status"
   }
 }

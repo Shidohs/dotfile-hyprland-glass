@@ -1,0 +1,33 @@
+/**
+ * Rofi DRun Module Configuration
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Configuration specific to desktop application launcher
+ **/
+
+/*---------- Drun settings ----------*/
+configuration {
+    drun-categories: "";
+    drun-match-fields: "name,generic,exec,categories,keywords";
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    drun-show-actions: false;
+    drun-url-launcher: "xdg-open";
+    drun-use-desktop-cache: false;
+    drun-reload-desktop-cache: false;
+    
+    drun {
+        /** Parse user desktop files. */
+        parse-user:   true;
+        /** Parse system desktop files. */
+        parse-system: true;
+    }
+    
+    /*---------- Display setting ----------*/
+    display-drun: "Apps";
+    
+    /*---------- Fallback Icon ----------*/
+    drun {
+        fallback-icon: "application-x-addon";
+    }
+}

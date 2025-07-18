@@ -1,0 +1,13 @@
+{
+  "include": [
+    "~/.config/waybar/modules/system/workspaces.json",
+    "~/.config/waybar/modules/system/bluetooth.json",
+    "~/.config/waybar/modules/system/network.json",
+    "~/.config/waybar/modules/system/monitor.json",
+    "~/.config/waybar/modules/system/tray.json",
+    "~/.config/waybar/modules/system/battery.json",
+    "~/.config/waybar/modules/system/clock.json",
+    "~/.config/waybar/modules/system/sound.json",
+    "~/.config/waybar/modules/system/pacman.json"
+  ]
+}

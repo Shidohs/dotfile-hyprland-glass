@@ -1,100 +1,87 @@
+/* =====================================================
+ * WAYBAR CONFIGURATION STYLES
+ * ===================================================== */
+
+/* -----------------------------------------------------
+ * GLOBAL STYLES
+ * ----------------------------------------------------- */
 * {
   font-size: 16px;
   font-family: "Fira Code", "FontAwesome", "Material Design Icons Desktop";
   font-weight: bold;
-  padding: 2px;
+  padding: 1.5px;
 }
 
-/* Estilos para el tooltip del widget del reloj */
-tooltip {
-  color: #a6a192;
-  border-radius: 16px;
-  font-size: 14px;
-  /*max-width: 300px;
-  text-align: center;*/
-}
-#clock {
-  color: #f1aa40;
-  border-radius: 0 12px 12px 0;
+.modules-left,
+.modules-right,
+.modules-center {
+  margin-top: -8px;
+  margin-bottom: -20px;
+  padding: 6px 4px 13px;
+  border-radius: 6px;
 }
 
+/* Main waybar window */
 window#waybar {
   background-color: transparent;
   border-bottom: 0px solid #ffffff;
-  /* color: #FFFFFF; */
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
-#custom-right-dark,
-#custom-left-dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
-#custom-notification {
-  color: rgb(182, 25, 25);
-  border-radius: 12px 0 0 12px;
-}
-
-#battery {
-  color: #aeff00;
-  border-radius: 0 12px 12px 0;
-}
-
-#custom-pacman {
-  color: #e1e410;
-  border-radius: 0 12px 12px 0;
-}
-
-#network {
-  color: #fdf6e3;
-}
-
-#bluetooth {
-  color: #15d056;
-}
-
-#custom-launch {
-  border-radius: 12px;
-  color: #0061ff;
-}
-
-#custom-powermenu {
-  color: red;
-  border-radius: 12px;
-}
-
-#memory {
-  border-radius: 12px 0 0 12px;
-  color: #15d056;
-}
-
-#temperature {
-  color: #0061ff;
+/* Tooltip styles */
+tooltip {
+  color: #a6a192;
+  border-radius: 16px;
+  font-size: 14px;
 }
 
 /* -----------------------------------------------------
-   * Workspaces
-   * ----------------------------------------------------- */
+ * COMMON BACKGROUND STYLES
+ * ----------------------------------------------------- */
+tooltip,
+#custom-notification,
+#clock,
+#bluetooth,
+#pulseaudio,
+#backlight,
+#memory,
+#cpu,
+#temperature,
+#battery,
+#network,
+#tray,
+#custom-pacman,
+#custom-launcher,
+#custom-powermenu {
+  background: rgba(0, 0, 0, 0.589);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 0 10px;
+  margin: 5px 0 6px 0;
+  font-size: 17px;
+}
 
+/* -----------------------------------------------------
+ * WORKSPACES
+ * ----------------------------------------------------- */
 #workspaces {
-  background: rgba(0, 0, 0, 0.589); /* Fondo semitransparente */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Difuminado */
-  margin: 5px 1px 6px 1px;
+  background: rgba(0, 0, 0, 0.589);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 6px 0px 8px 0px;
   padding: 0 10px;
   border-radius: 12px;
   border: 0px;
   font-weight: bold;
   font-style: normal;
-  font-size: 16px;
+
   color: #f700ff;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button {
-  padding: 0px 5px;
-  margin: 4px 3px;
-  border-radius: 15px;
+  margin: 5px 3px;
+  padding: 2px 6px;
+  border-radius: 12px;
   border: 0px;
   color: black;
   background-color: #fdf6e3;
@@ -118,47 +105,120 @@ window#waybar {
   opacity: 0.7;
 }
 
-#pulseaudio {
-  color: #009eff;
-}
+/* -----------------------------------------------------
+ * SYSTEM INFORMATION WIDGETS
+ * ----------------------------------------------------- */
 
-#backlight {
-  color: #b58900;
-}
-
+/* CPU */
 #cpu {
   color: #f700ff;
+
+  /* Tamaño personalizado para CPU */
 }
 
-/*
-  BackGround
-  
-  */
+/* Memory */
+#memory {
+  border-radius: 12px 0 0 12px;
+  color: #15d056;
+  /* Tamaño personalizado para memoria */
+}
 
+/* Temperature */
+#temperature {
+  color: #0061ff;
+  /* Tamaño más pequeño para temperatura */
+}
+
+/* Battery */
+#battery {
+  color: #aeff00;
+  border-radius: 0 12px 12px 0;
+  /* Tamaño más grande para batería */
+}
+
+/* -----------------------------------------------------
+ * AUDIO & DISPLAY WIDGETS
+ * ----------------------------------------------------- */
+
+/* Audio */
+#pulseaudio {
+  color: #009eff;
+  /* Tamaño personalizado para audio */
+}
+
+/* Backlight */
+#backlight {
+  color: #b58900;
+  /* Tamaño personalizado para brillo */
+}
+
+/* -----------------------------------------------------
+ * NETWORK & CONNECTIVITY
+ * ----------------------------------------------------- */
+
+/* Network */
 #network {
   border-radius: 12px 0 0 12px;
   color: #0061ff;
+  /* Tamaño personalizado para red */
 }
-#tray {
+
+/* Bluetooth */
+#bluetooth {
+  color: #15d056;
+  /* Tamaño personalizado para Bluetooth */
+}
+
+/* -----------------------------------------------------
+ * TIME & DATE
+ * ----------------------------------------------------- */
+
+/* Clock */
+#clock {
+  color: #f1aa40;
+  border-radius: 0 12px 12px 0;
+  /* Tamaño más grande para el reloj */
+}
+
+/* -----------------------------------------------------
+ * CUSTOM WIDGETS
+ * ----------------------------------------------------- */
+
+/* Launcher */
+#custom-launcher {
+  border-radius: 12px;
+  color: #0061ff;
+}
+
+/* Power menu */
+#custom-powermenu {
+  color: red;
   border-radius: 12px;
 }
-tooltip,
-#custom-notification,
-#clock,
-#bluetooth,
-#pulseaudio,
-#backlight,
-#memory,
-#cpu,
-#temperature,
-#battery,
-#network,
-#tray,
-#custom-pacman,
-#custom-launch,
-#custom-powermenu {
-  background: rgba(0, 0, 0, 0.589);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 0 10px;
-  margin: 5px 0 6px 0;
+
+/* Package manager updates */
+#custom-pacman {
+  color: #e1e410;
+  border-radius: 0 12px 12px 0;
+  /* Tamaño personalizado para pacman */
+}
+
+/* Notifications */
+#custom-notification {
+  color: rgb(182, 25, 25);
+  border-radius: 12px 0 0 12px;
+}
+
+/* Dark theme elements */
+#custom-right-dark,
+#custom-left-dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* -----------------------------------------------------
+ * SYSTEM TRAY
+ * ----------------------------------------------------- */
+#tray {
+  border-radius: 12px;
 }

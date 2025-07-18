@@ -5,6 +5,7 @@ jq
 util-linux
 wmctrl
 hyprshot
+wlogout
 
 #fonts 
 

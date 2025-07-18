@@ -2,7 +2,7 @@
   "clock": {
     "locale": "C",
     "tooltip": false,
-    "format": " {:%I:%M %p}",
-    "format-alt": " {:%I:%M |  %a,%b %d}"
+    "format": " {:%I:%M %p}",
+    "format-alt": " {:%I:%M |  %a,%b %d}"
   }
 }

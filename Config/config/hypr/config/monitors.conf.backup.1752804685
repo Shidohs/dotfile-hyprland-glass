@@ -1,0 +1,18 @@
+# Monitor Configuration
+# Format: monitor=name,resolution,position,scale
+
+# Default monitor configuration
+monitor=,preferred,auto,auto
+
+# Specific monitor configurations
+monitor=DP-1,highrr,auto,1
+monitor=HDMI-A-1,preferred,auto,1
+
+# Workspace assignments
+workspace=1,monitor:DP-1
+workspace=2,monitor:DP-1  
+workspace=3,monitor:HDMI-A-1
+workspace=4,monitor:HDMI-A-1
+workspace=5,monitor:HDMI-A-1
+workspace=6,monitor:HDMI-A-1
+workspace=7,monitor:HDMI-A-1

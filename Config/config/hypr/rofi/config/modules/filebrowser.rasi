@@ -1,0 +1,20 @@
+/**
+ * Rofi File Browser Module Configuration
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Configuration specific to file browser
+ **/
+
+/*---------- File browser settings ----------*/
+configuration {
+    /*---------- Display setting ----------*/
+    display-filebrowser: "Files";
+    
+    /*---------- File browser settings ----------*/
+    filebrowser {
+        /*  directory: "/home";*/
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}

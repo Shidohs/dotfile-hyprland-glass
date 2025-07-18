@@ -2,9 +2,30 @@
   "bluetooth": {
     "format": "󰂯",
     "format-disabled": "󰂲",
-    "format-off": "disabled",
-    "interval": 30,
+    "format-off": "󰂲",
+    "format-connected": "󰂱 {num_devices}",
+    "format-connected-bluetooth": "󰂱 {num_devices}",
+    "format-no-controller": "󰂲",
+    "interval": 5,
     "on-click": "blueman-manager",
-    "format-no-controller": ""
+    "on-click-right": "bluetoothctl power toggle",
+    "on-click-middle": "bluetoothctl scan on",
+    "tooltip-format": "{controller_alias}\n{controller_address}\n\nDispositivos conectados: {num_devices}",
+    "tooltip-format-disabled": "Bluetooth desactivado\nClic derecho para activar",
+    "tooltip-format-off": "Bluetooth apagado\nClic derecho para encender",
+    "tooltip-format-no-controller": "No se encontró controlador Bluetooth",
+    "tooltip-format-connected": "Dispositivos conectados: {num_devices}\nClic para abrir gestor",
+    "max-length": 20
+  },
+  "custom/bluetooth": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/bluetooth_status.sh",
+    "interval": 5,
+    "on-click": "blueman-manager",
+    "on-click-right": "~/.config/waybar/scripts/bluetooth_manager.sh toggle",
+    "on-click-middle": "~/.config/waybar/scripts/bluetooth_manager.sh scan",
+    "tooltip": true,
+    "max-length": 20
   }
 }

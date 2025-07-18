@@ -1,0 +1,18 @@
+{
+  "memory": {
+    "interval": 2,
+    "format": " {}%",
+    "on-click": "kitty -e btop "
+  },
+  "cpu": {
+    "interval": 2,
+    "format": " {usage:2}% ",
+    "on-click": "kitty -e watch cpupower frequency-info"
+  },
+  "temperature": {
+    "interval": 2,
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C",
+    "on-click": "xsensors"
+  }
+}

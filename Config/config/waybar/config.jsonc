@@ -2,18 +2,20 @@
   // Position
   "layer": "top",
   "position": "top",
-
+  // Style
+  //"style": "~/.config/waybar/style.css",
   // Load Modules
   "include": [
-    "~/.config/waybar/modules/system.json",
-    "~/.config/waybar/modules/decorations.json",
-    "~/.config/waybar/modules/custom.json"
+    "~/.config/waybar/modules/system/system.jsonc",
+    "~/.config/waybar/modules/decorations/decorations.json",
+    "~/.config/waybar/modules/custom/custom.json"
   ],
 
   // Modules waybar
   "modules-left": [
-    "custom/launch",
+    "custom/launcher",
     "custom/spacebackLong",
+    //"custom/system",
     "memory",
     "cpu",
     "temperature",
@@ -27,7 +29,7 @@
     "clock",
     "custom/spacebackShort",
     "network#2",
-    "bluetooth",
+    //"bluetooth",
     "pulseaudio",
     "battery",
     "custom/spacebackShort",

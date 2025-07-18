@@ -5,116 +5,234 @@
       "pipewire-alsa",
       "pipewire-pulse",
       "pipewire-jack",
-      "pavucontrol"
+      "wireplumber",
+      "pavucontrol",
+      "pamixer",
+      "playerctl"
     ],
     "Desktop Environment": [
       "hyprland",
       "hyprpaper",
+      "hyprlock",
+      "hypridle",
+      "hyprpicker",
+      "hyprshot",
       "swaybg",
       "waybar",
       "swaylock-fancy-git",
       "swaync",
       "qt5-wayland",
-      "xorg-xwayland"
+      "qt6-wayland",
+      "xorg-xwayland",
+      "wlroots",
+      "wayland",
+      "wayland-protocols"
+    ],
+    "XDG Portals": [
+      "xdg-desktop-portal",
+      "xdg-desktop-portal-hyprland",
+      "xdg-desktop-portal-gtk",
+      "xdg-desktop-portal-wlr"
     ],
     "Power Management": [
       "upower",
-      "udiskie"
+      "udiskie",
+      "xfce4-power-manager",
+      "acpi",
+      "acpid",
+      "tlp",
+      "powertop"
     ],
     "Bluetooth": [
-      "bluez-utils",
       "bluez",
-      "blueman"
+      "bluez-utils",
+      "blueman",
+      "pulseaudio-bluetooth"
     ],
     "Security": [
       "gnome-keyring",
-      "polkit-gnome"
+      "polkit",
+      "polkit-gnome",
+      "seahorse"
     ],
     "Terminal": [
-      "sakura",
       "kitty",
-      "alacritty"
+      "alacritty",
+      "foot",
+      "sakura"
+    ],
+    "Shell and CLI Tools": [
+      "zsh",
+      "oh-my-zsh-git",
+      "zsh-autosuggestions",
+      "zsh-syntax-highlighting",
+      "fzf-tab-git",
+      "powerlevel10k",
+      "bat",
+      "exa",
+      "fd",
+      "ripgrep",
+      "tree",
+      "htop",
+      "btop",
+      "neofetch",
+      "fastfetch"
     ],
     "Utilities": [
+      "rofi-wayland",
+      "fuzzel",
+      "wofi",
       "nwg-look",
-      "appimage-installer-bin",
-      "i3lock-color",
+      "lxappearance",
+      "qt5ct",
+      "kvantum",
       "imagemagick",
-      "awk",
       "jq",
+      "bc",
       "util-linux",
       "wmctrl",
-      "hyprshot",
-      "hyprpicker",
-      "xdg-desktop-portal-hyprland",
-      "xdg-desktop-portal",
-      "xdg-desktop-portal-gtk",
+      "wl-clipboard",
+      "xclip",
       "file-roller",
-      "rofi-wayland",
-      "networkmanager"
+      "unzip",
+      "zip",
+      "tar",
+      "gzip",
+      "p7zip"
     ],
-    "Coding": [
-      "vscode",
+    "Network": [
+      "networkmanager",
+      "nm-connection-editor",
+      "network-manager-applet",
+      "curl",
+      "wget",
+      "openssh"
+    ],
+    "Development": [
+      "git",
+      "code",
+      "vscodium",
       "neovim",
-      "geany"
+      "vim",
+      "geany",
+      "python",
+      "python-pip",
+      "nodejs",
+      "npm",
+      "base-devel"
     ],
     "File Management": [
       "thunar",
-      "nemo"
+      "thunar-volman",
+      "thunar-archive-plugin",
+      "nemo",
+      "ranger",
+      "gvfs",
+      "gvfs-mtp",
+      "gvfs-gphoto2",
+      "ntfs-3g"
     ],
     "Web Browsing": [
-      "firefox"
+      "firefox",
+      "chromium",
+      "brave-bin"
     ],
     "Multimedia": [
-      "viewnior",
+      "mpv",
+      "vlc",
       "celluloid",
-      "ristretto"
-    ],
-    "Miscellaneous": [
-      "zsh",
-      "font-manager",
-      "plocate",
-      "bat",
-      "brightnessctl",
-      "btop",
-      "neofetch",
-      "xclip",
-      "curl",
-      "python",
-      "dunst",
+      "viewnior",
+      "ristretto",
+      "gwenview",
+      "eog",
       "ffmpeg",
-      "fzf",
-      "glow",
-      "gparted",
-      "grub-customizer",
-      "gtk",
-      "gtk2",
+      "gstreamer",
+      "gst-plugins-good",
+      "gst-plugins-bad",
+      "gst-plugins-ugly",
+      "gst-libav"
+    ],
+    "Graphics and Themes": [
       "gtk3",
       "gtk4",
-      "ocs-url",
-      "rsync"
+      "gtk2",
+      "adwaita-icon-theme",
+      "papirus-icon-theme",
+      "candy-icons-git",
+      "bibata-cursor-theme",
+      "xcursor-themes"
     ],
     "System Utilities": [
-      "exa",
-      "jgmenu",
-      "dmenu",
-      "acpi",
-      "acpid",
-      "lxappearance",
-      "tree"
+      "systemd",
+      "dbus",
+      "gparted",
+      "grub-customizer",
+      "timeshift",
+      "rsync",
+      "plocate",
+      "mlocate",
+      "which",
+      "less",
+      "nano",
+      "micro"
     ],
     "Fonts": [
-      "candy-icons-git",
-      "fontdownloader",
-      "ttf-firacode",
+      "ttf-dejavu",
+      "ttf-liberation",
       "ttf-firacode-nerd",
-      "ttf-font-awesome",
       "ttf-jetbrains-mono-nerd",
+      "ttf-font-awesome",
       "ttf-nerd-fonts-symbols",
+      "ttf-nerd-fonts-symbols-mono",
       "ttf-victor-mono-nerd",
       "ttf-material-design-iconic-font",
-      "ttf-material-design-icons-desktop-git"
+      "ttf-material-design-icons-desktop-git",
+      "noto-fonts",
+      "noto-fonts-emoji",
+      "fontconfig"
+    ],
+    "Gaming": [
+      "steam",
+      "lutris",
+      "wine",
+      "winetricks",
+      "gamemode",
+      "lib32-gamemode"
+    ],
+    "AUR Helpers": [
+      "yay",
+      "paru"
+    ],
+    "Optional Enhancements": [
+      "pamac-aur",
+      "powerpill",
+      "reflector",
+      "pkgfile",
+      "downgrade",
+      "rebuild-detector"
+    ],
+    "Nvidia Drivers": [
+      "nvidia",
+      "nvidia-utils",
+      "lib32-nvidia-utils",
+      "nvidia-settings",
+      "libva-nvidia-driver"
+    ],
+    "AMD Drivers": [
+      "mesa",
+      "lib32-mesa",
+      "vulkan-radeon",
+      "lib32-vulkan-radeon",
+      "libva-mesa-driver",
+      "lib32-libva-mesa-driver"
+    ],
+    "Intel Drivers": [
+      "mesa",
+      "lib32-mesa",
+      "vulkan-intel",
+      "lib32-vulkan-intel",
+      "libva-intel-driver",
+      "lib32-libva-intel-driver"
     ]
   }
 }
-

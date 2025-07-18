@@ -8,12 +8,8 @@
       "urgent": "",
       "active": "",
       "default": ""
-    },
-    "persistent-workspaces": {
-      "*": 6
     }
   },
-
   "hyprland/window": {
     "max-length": 80,
     "tooltip": false

@@ -1,0 +1,8 @@
+{
+  "custom/launcher": {
+    "format": " rch",
+    "on-click": "nwg-menu",
+    "on-click-right": "rofi -theme ~/.config/hypr/rofi/themes/launcher.rasi -show drun",
+    "on-click-middle": "pkill -9 rofi"
+  }
+}

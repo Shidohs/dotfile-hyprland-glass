@@ -1,0 +1,9 @@
+# Auto-generated monitor configuration - jue 17 jul 2025 21:11:25 -05
+# Format: monitor=name,resolution,position,scale
+
+monitor=eDP-1,preferred,auto,1
+
+# Workspace assignments
+workspace=1,monitor:eDP-1
+workspace=2,monitor:eDP-1
+workspace=3,monitor:eDP-1
